@@ -3,16 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private SoundManager soundManager;
-    [SerializeField] private GameObject title, settings;
+    [SerializeField] private GameObject title, settings, fade;
+    [SerializeField] private TMP_Text versionText;
     [SerializeField] private Button[] buttonsTitle;
-
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] Toggle fullScreenToggle;
     [SerializeField] private AudioClip selectSound;
+
     private float volume = 0.5f;
-    
+
+    private void Start()
+    {
+        versionText.text = Application.version;
+        if (PlayerPrefs.HasKey("volume"))
+        {
+            volume = PlayerPrefs.GetFloat("volume");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("volume", volume);
+        }
+        volumeSlider.value = volume * 10;// *10 pour utiliser l'arrondissement des sliders Unity.
+        if (PlayerPrefs.HasKey("fullscreen"))
+        {
+            if (PlayerPrefs.GetInt("fullscreen") == 1)
+            {
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            }
+            else
+            {
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("fullscreen", 1);
+        }
+    }
     public void StartGame()
     {
         soundManager.playSound(selectSound, volume);
@@ -20,7 +52,7 @@ public class MenuManager : MonoBehaviour
         {
             b.enabled = false;
         }
-        Invoke("LoadGame", 1f);
+        StartCoroutine("LoadGame");
     }
     public void OpenSettings()
     {
@@ -37,15 +69,38 @@ public class MenuManager : MonoBehaviour
     public void LeaveGame()
     {
         soundManager.playSound(selectSound, volume);
-        Invoke("CloseApplication", 1f);
+        StartCoroutine("CloseApplication");
     }
-
-    private void LoadGame()
+    public void ChangeVolume()
     {
-        SceneManager.LoadScene(1);
+        volume = volumeSlider.value / 10;// /10 parce que le slider va de 0 à 10 et on veut une valeur de 0 à 1.
+        PlayerPrefs.SetFloat("volume", volume);
+        PlayerPrefs.Save();
     }
-    private void CloseApplication()
+    public void ToggleFullscreen()
     {
+        if (fullScreenToggle.isOn)
+        {
+            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            PlayerPrefs.SetInt("fullscreen", 1);
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            PlayerPrefs.SetInt("fullscreen", 0);
+        }
+        PlayerPrefs.Save();
+    }
+    private IEnumerator LoadGame()
+    {
+        fade.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene("Game");
+    }
+    private IEnumerator CloseApplication()
+    {
+        fade.SetActive(true);
+        yield return new WaitForSeconds(0.6f);
         Application.Quit();
     }
 }
