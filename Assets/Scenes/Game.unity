@@ -219,11 +219,23 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 3
   m_RegexValue: 
-  m_GlobalPointSize: 14
-  m_CharacterLimit: 14
+  m_GlobalPointSize: 35
+  m_CharacterLimit: 11
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 657226171}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SubmitAnswer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: this.text
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -252,7 +264,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
-  m_RichText: 1
+  m_RichText: 0
   m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
@@ -334,7 +346,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0}
+  m_BackGroundColor: {r: 0.12941177, g: 0.12941177, b: 0.12941177, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -487,6 +499,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab17c0351dc86d944bef5c87961d36a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questions:
+  - Que font 9 + 10?
+  - Que font 3 x 2 + 3
+  - gg
+  answers:
+  - 19
+  - 9
+  - 69
+  questionText: {fileID: 1965879417}
+  answerInputField: {fileID: 12879317}
 --- !u!114 &657226172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +521,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab17c0351dc86d944bef5c87961d36a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questions: []
+  answers: []
+  questionText: {fileID: 0}
+  answerInputField: {fileID: 0}
 --- !u!4 &657226173
 Transform:
   m_ObjectHideFlags: 0
@@ -777,7 +803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Question...
+  m_text: Qeuestion
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 71cf624a8360be24bbe3eddb2f394986, type: 2}
   m_sharedMaterial: {fileID: -8794498403625390974, guid: 71cf624a8360be24bbe3eddb2f394986, type: 2}
@@ -1028,7 +1054,7 @@ MonoBehaviour:
   m_enableKerning: 1
   m_enableExtraPadding: 1
   checkPaddingRequired: 0
-  m_isRichText: 1
+  m_isRichText: 0
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

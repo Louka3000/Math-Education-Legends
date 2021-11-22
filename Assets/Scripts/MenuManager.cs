@@ -20,6 +20,9 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         versionText.text = Application.version;
+        /*
+         * Loads settings or create them if they don't exist
+         */
         if (PlayerPrefs.HasKey("volume"))
         {
             volume = PlayerPrefs.GetFloat("volume");
@@ -28,7 +31,7 @@ public class MenuManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("volume", volume);
         }
-        volumeSlider.value = volume * 10;// *10 pour utiliser l'arrondissement des sliders Unity.
+        volumeSlider.value = volume * 10;// *10 tu use whole numbers for the Unity slider
         if (PlayerPrefs.HasKey("fullscreen"))
         {
             if (PlayerPrefs.GetInt("fullscreen") == 1)
@@ -45,7 +48,7 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetInt("fullscreen", 1);
         }
     }
-    public void StartGame()
+    public void StartGame() //Called when "JOUER" is pressed
     {
         soundManager.playSound(selectSound, volume);
         foreach(Button b in buttonsTitle)
@@ -54,30 +57,30 @@ public class MenuManager : MonoBehaviour
         }
         StartCoroutine("LoadGame");
     }
-    public void OpenSettings()
+    public void OpenSettings() //Called when "PARAMETRE" is pressed
     {
         soundManager.playSound(selectSound, volume);
         title.SetActive(false);
         settings.SetActive(true);
     }
-    public void CloseSettings()
+    public void CloseSettings() //Called when "RETOUR" is pressed
     {
         soundManager.playSound(selectSound, volume);
         title.SetActive(true);
         settings.SetActive(false);
     }
-    public void LeaveGame()
+    public void LeaveGame() //Called when "QUITTER' is pressed
     {
         soundManager.playSound(selectSound, volume);
         StartCoroutine("CloseApplication");
     }
-    public void ChangeVolume()
+    public void ChangeVolume() //Called when the volume slider's value changes
     {
-        volume = volumeSlider.value / 10;// /10 parce que le slider va de 0 à 10 et on veut une valeur de 0 à 1.
+        volume = volumeSlider.value / 10;// /10 because the slider goes from 0 to 10 instead of 0 to 1
         PlayerPrefs.SetFloat("volume", volume);
         PlayerPrefs.Save();
     }
-    public void ToggleFullscreen()
+    public void ToggleFullscreen() //Called when the checkmark for toggling fullscreen is toggled
     {
         if (fullScreenToggle.isOn)
         {
