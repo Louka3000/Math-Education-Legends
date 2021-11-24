@@ -3,33 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Globalization;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] [TextArea] private string[] questions;
-    [SerializeField] private float[] answers;
-    [SerializeField] TMP_Text questionText;
-    [SerializeField] TMP_InputField answerInputField;
-
+    [SerializeField] private TextMeshProUGUI questionText;
+    [SerializeField] private answerButtonsScript[] answerButtons;
+    [SerializeField] private TextMeshProUGUI[] answerTexts;
+    [SerializeField] private int[] correctButton;
     private int questionNumber;
+    [SerializeField] private SoundManager soundManager;
+    [SerializeField] private AudioClip selectSound;
+    private float volume;
+    [SerializeField] private GameObject answerPanel;
 
     private void Start()
     {
-        questionText.SetText(questions[0]);
+        volume = PlayerPrefs.GetFloat("volume", 0.5f);
+        SetNewTexts();
     }
-    public void SubmitAnswer() //Called when the "CONFIRMER" button is pressed
+    public void SubmitAnswer(int button)
     {
-        if (float.Parse(answerInputField.text) == answers[questionNumber])
+        soundManager.playSound(selectSound, volume);
+        if (correctButton[questionNumber] == button) //If answered question correctly
         {
             questionNumber++;
-            questionText.SetText(questions[questionNumber]);
-            answerInputField.text = "";
-            Debug.Log("Yes :D");
+            if (questionNumber == 10) //If answered all question correctly
+            {
+                Debug.Log("You won!!!");
+                questionText.SetText("You won!!!");
+                answerPanel.SetActive(false);
+            }
+            else //else go to next question
+            {
+                SetNewTexts();
+                Debug.Log("Yes :D");
+            }
         }
-        else
+        else //If didn't answer correctly
         {
             Debug.Log("No :(");
         }
+    }
+    private void SetNewTexts()
+    {
+        int i = 0;
+        foreach (TextMeshProUGUI text in answerTexts)
+        {
+            text.SetText(answerButtons[i].answers[questionNumber]);
+            i++;
+        }
+        questionText.SetText(questions[0]);
     }
 }
