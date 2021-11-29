@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] [TextArea] private string[] questions;
-    [SerializeField] private TextMeshProUGUI questionText;
+    [SerializeField] [TextArea] private string winText;
+    [SerializeField] private TextMeshProUGUI questionText, scoreText;
     [SerializeField] private answerButtonsScript[] answerButtons;
     [SerializeField] private TextMeshProUGUI[] answerTexts;
     [SerializeField] private int[] correctButton;
-    private int questionNumber;
+    private int questionNumber, score;
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip selectSound;
     private float volume;
@@ -28,11 +29,12 @@ public class GameManager : MonoBehaviour
         soundManager.playSound(selectSound, volume);
         if (correctButton[questionNumber] == button) //If answered question correctly
         {
+            score += 5;
             questionNumber++;
             if (questionNumber == 10) //If answered all question correctly
             {
                 Debug.Log("You won!!!");
-                questionText.SetText("You won!!!");
+                questionText.SetText(winText);
                 answerPanel.SetActive(false);
             }
             else //else go to next question
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
         }
         else //If didn't answer correctly
         {
+            score--;
+            scoreText.SetText("Score :  " + score);
             Debug.Log("No :(");
         }
     }
@@ -54,6 +58,7 @@ public class GameManager : MonoBehaviour
             text.SetText(answerButtons[i].answers[questionNumber]);
             i++;
         }
-        questionText.SetText(questions[0]);
+        scoreText.SetText("Score :  " + score);
+        questionText.SetText(questions[questionNumber]);
     }
 }

@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162.05692, y: 60.000015}
-  m_SizeDelta: {x: 220, y: 70}
+  m_AnchoredPosition: {x: 162.05692, y: 75}
+  m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22750666
 MonoBehaviour:
@@ -270,16 +270,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answers:
-  - 1
-  - 2
-  - 3
+  - 18
   - 4
-  - 5
-  - 6
-  - 7
+  - 39
+  - 19
   - 8
-  - 9
-  - 10
+  - 30
+  - 4
+  - 25
+  - 24
+  - 20
 --- !u!114 &81636401 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5171084787432234341, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
@@ -458,8 +458,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -545,8 +545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.0569, y: 60.000015}
-  m_SizeDelta: {x: 220, y: 70}
+  m_AnchoredPosition: {x: -162.0569, y: 75}
+  m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &415534884
 MonoBehaviour:
@@ -655,16 +655,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answers:
-  - 1
   - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
   - 9
-  - 10
+  - 4
+  - 91
+  - 12
+  - 15
+  - 7
+  - 15
+  - 12
+  - 16
 --- !u!1 &540791924
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,17 +772,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - WOW
+  - 'Question  1:
+
+    Que font 7 + 11?'
+  - 'Question  2:
+
+    Que font 3 x 3?'
+  - 'Question  3:
+
+    Que font 1 - 4?'
+  - 'Question  4:
+
+    Que font 9 + 10?'
+  - 'Question  5:
+
+    Que font 2 x (3 + 2)?'
+  - 'Question  6:
+
+    Que font (5 x 3 + 15) x 0?'
+  - 'Question  7:
+
+    Que font 3 + 4?'
+  - 'Question  8:
+
+    Que font 5 x 5?'
+  - 'Question  9:
+
+    Que font 12 - 12 + 12?'
+  - 'Question  10:
+
+    Que font 6 x 4 + 6 - (3 x 5)?'
+  winText: 'Felecitations
+
+    Vous avez gagne'
   questionText: {fileID: 1965879417}
+  scoreText: {fileID: 1600169139}
   answerButtons:
   - {fileID: 415534887}
   - {fileID: 22750669}
@@ -793,7 +817,7 @@ MonoBehaviour:
   - {fileID: 1744883388}
   - {fileID: 1715655343}
   - {fileID: 371394941}
-  correctButton: 01000000020000000300000004000000010000000200000003000000040000000100000002000000
+  correctButton: 02000000010000000400000002000000030000000300000001000000020000000100000004000000
   soundManager: {fileID: 81636401}
   selectSound: {fileID: 8300000, guid: 2de4765420c9beb4b8c4435de6d826fd, type: 3}
   answerPanel: {fileID: 2134113060}
@@ -810,7 +834,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questions: []
+  winText: 
   questionText: {fileID: 0}
+  scoreText: {fileID: 0}
   answerButtons: []
   answerTexts: []
   correctButton: 
@@ -915,8 +941,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1002,8 +1028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.0569, y: -60.000015}
-  m_SizeDelta: {x: 220, y: 70}
+  m_AnchoredPosition: {x: -162.0569, y: -75}
+  m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408811197
 MonoBehaviour:
@@ -1112,16 +1138,150 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answers:
-  - 1
-  - 2
-  - 3
   - 4
-  - 5
-  - 6
-  - 7
-  - 8
-  - 9
+  - 88
+  - -6
+  - 4
   - 10
+  - 0
+  - -7
+  - 16
+  - -6
+  - 24
+--- !u!1 &1600169137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600169138}
+  - component: {fileID: 1600169140}
+  - component: {fileID: 1600169139}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1600169138
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600169137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2114186549}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -698, y: 452}
+  m_SizeDelta: {x: 400, y: 70}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1600169139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600169137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Score : '
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 71cf624a8360be24bbe3eddb2f394986, type: 2}
+  m_sharedMaterial: {fileID: -8794498403625390974, guid: 71cf624a8360be24bbe3eddb2f394986, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 56
+  m_fontSizeBase: 56
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1600169140
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600169137}
+  m_CullTransparentMesh: 1
 --- !u!1 &1715655341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,8 +1366,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1340,8 +1500,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1561,8 +1721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162.05692, y: -60.000015}
-  m_SizeDelta: {x: 220, y: 70}
+  m_AnchoredPosition: {x: 162.05692, y: -75}
+  m_SizeDelta: {x: 220, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013624897
 MonoBehaviour:
@@ -1671,16 +1831,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answers:
-  - 1
-  - 2
-  - 3
-  - 4
   - 5
-  - 6
-  - 7
-  - 8
-  - 9
-  - 10
+  - 2
+  - -3
+  - 21
+  - 4
+  - -2
+  - 14
+  - 42
+  - 36
+  - 15
 --- !u!1 &2018523760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,6 +2057,7 @@ RectTransform:
   m_Children:
   - {fileID: 540791925}
   - {fileID: 2134113061}
+  - {fileID: 1600169138}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1943,8 +2104,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
-  m_SizeDelta: {x: 700, y: 300}
+  m_AnchoredPosition: {x: 0, y: -170}
+  m_SizeDelta: {x: 720, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2134113062
 MonoBehaviour:
