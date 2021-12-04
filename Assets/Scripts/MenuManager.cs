@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private GameObject title, settings, fade;
-    [SerializeField] private TMP_Text versionText;
+    [SerializeField] private TMP_Text versionText, highScoreText;
     [SerializeField] private Button[] buttonsTitle;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] Toggle fullScreenToggle;
@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        versionText.text = Application.version;
+        versionText.SetText("Version  " + Application.version);
         /*
          * Loads settings or create them if they don't exist
          */
@@ -46,6 +46,15 @@ public class MenuManager : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("fullscreen", 1);
+        }
+        if (PlayerPrefs.HasKey("highscore"))
+        {
+            highScoreText.SetText("Meilleur  score :  " + PlayerPrefs.GetInt("highscore"));
+        }
+        else
+        {
+            PlayerPrefs.SetInt("highscore", 0);
+            highScoreText.SetText("Meilleur  score :  " + 0);
         }
     }
     public void StartGame() //Called when "JOUER" is pressed
