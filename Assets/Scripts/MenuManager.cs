@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Toggle fullScreenToggle;
     [SerializeField] private AudioClip selectSound;
 
-    private float volume = 0.5f;
+    private float volume = 0.4f; //initial volume
 
     private void Start()
     {
@@ -49,12 +49,12 @@ public class MenuManager : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("highscore"))
         {
-            highScoreText.SetText("Meilleur  score :  " + PlayerPrefs.GetInt("highscore"));
+            highScoreText.SetText("Meilleur  score    " + PlayerPrefs.GetInt("highscore"));
         }
         else
         {
             PlayerPrefs.SetInt("highscore", 0);
-            highScoreText.SetText("Meilleur  score :  " + 0);
+            highScoreText.SetText("Meilleur  score    " + 0);
         }
     }
     public void StartGame() //Called when "JOUER" is pressed

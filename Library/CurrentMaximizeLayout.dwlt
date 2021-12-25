@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 114
+  controlID: 27036
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -80,8 +80,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -94,18 +94,18 @@ MonoBehaviour:
       y: 21
       width: 1000
       height: 544
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 500, y: 272}
+    m_Scale: {x: 1.343916, y: 1.343916}
+    m_Translation: {x: 527.5234, y: 322.1271}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -500
-      y: -272
-      width: 1000
-      height: 544
+      x: -392.52704
+      y: -239.69287
+      width: 744.0941
+      height: 404.7872
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1000, y: 565}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 71
+  controlID: 27037
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 45
+  controlID: 27038
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 10f4ffff42fbffffd2580000e4580000f45800001e590000
+      m_ExpandedIDs: 6c69fffff869ffff7c98ffffb0b1ffffd2b1ffff42fbffffee580000fa5800002e590000625900008659000066880000c488000090930000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.6076391, y: -0.35058984, z: 63.18512}
+    m_Target: {x: -0.8797381, y: 1.0165255, z: 68.58558}
     speed: 2
-    m_Value: {x: -0.6076391, y: -0.35058984, z: 63.18512}
+    m_Value: {x: -0.8797381, y: 1.0165255, z: 68.58558}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -362,9 +362,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.481595
+    m_Target: 6.6356144
     speed: 2
-    m_Value: 4.481595
+    m_Value: 6.6356144
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -418,14 +418,14 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: -8836142000455380635, guid: e8d81517748bd464ab3fd671647f1213, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.63894737
+    - e00: 0.7020959
       e01: 0
       e02: 0
-      e03: -16.947357
+      e03: -0.38140202
       e10: 0
-      e11: 0.63894737
+      e11: 0.7020959
       e12: 0
-      e13: 202.3
+      e13: 202.45074
       e20: 0
       e21: 0
       e22: 1
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_CurrentEditor: 0
+  m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
 --- !u!114 &10
@@ -521,8 +521,8 @@ MonoBehaviour:
     y: 586
     width: 1356
     height: 361
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -531,7 +531,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -570,22 +570,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\mario\Documents\Unity Projects\Math-Education-Legends
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 20}
-    m_SelectedIDs: b4590000
-    m_LastClickedID: 22964
-    m_ExpandedIDs: 000000009e590000a0590000a259000000ca9a3b
+    scrollPos: {x: 0, y: 36}
+    m_SelectedIDs: 605a0000
+    m_LastClickedID: 23136
+    m_ExpandedIDs: 000000004c5a00004e5a0000505a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -613,7 +613,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e590000a0590000a2590000
+    m_ExpandedIDs: 000000004c5a00004e5a0000505a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -638,9 +638,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: ec580000
-    m_LastClickedInstanceID: 22764
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 32930000
+    m_LastClickedInstanceID: 37682
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000d8480000ba83000052490000225a00003c840000005b000000000000085f0000065f000078490000fa430000f44f0000d4460000be4600000c680000f4460000009300002a510000b8a40000b2650000b24700001c470000fe6600005cef0100fe5a0000846c0000ea6200007c5b0000ac7f00001a5100009ca30100585b0000ae5600005e59000060590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -3056
+  m_LastSelectedObjectID: 37636
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1699,7 +1699,7 @@ MonoBehaviour:
     m_CachedPref: 356
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 22764
+  m_LastInspectedObjectInstanceID: 37682
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

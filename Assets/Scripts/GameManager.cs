@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private answerButtonsScript[] answerButtons;
     [SerializeField] private TextMeshProUGUI questionText, scoreText, timerText;
     [SerializeField] private TextMeshProUGUI[] answerTexts;
+    [SerializeField] private Button[] answerButtonsbuttons;
     [SerializeField] private GameObject answerPanel, fade;
     [SerializeField] private Animator fadeAnimator;
 
@@ -35,20 +36,21 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator StartGame()
     {
-        SetNewTexts();
+        StartCoroutine("SetNewTexts");
         fade.SetActive(true);
         fadeAnimator.SetBool("reverse", true);
         yield return new WaitForSeconds(0.6f);
         fade.SetActive(false);
         yield return new WaitForSeconds(0.1f);
-        gameOngoing = true;
     }
     private void Update()
     {
         if (gameOngoing)
         {
             timer += Time.deltaTime;
-            timerText.SetText("Temps :  " + Math.Round(timer, 2));
+            float time = (float)Math.Round(timer, 1);
+            timerText.SetText("Temps :  " + time);
+            if ((int)time == time) timerText.text += ".0";
         }
     }
     public void SubmitAnswer(int button)
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
             }
             else //else go to next question
             {
-                SetNewTexts();
+                StartCoroutine("SetNewTexts");
                 Debug.Log("Yes :D");
             }
         }
@@ -86,8 +88,13 @@ public class GameManager : MonoBehaviour
             Debug.Log("No :(");
         }
     }
-    private void SetNewTexts()
+    private IEnumerator SetNewTexts()
     {
+        gameOngoing = false;
+        foreach (Button b in answerButtonsbuttons)
+        {
+            b.enabled = false;
+        }
         int i = 0;
         foreach (TextMeshProUGUI text in answerTexts)
         {
@@ -96,5 +103,11 @@ public class GameManager : MonoBehaviour
         }
         scoreText.SetText("Score :  " + score);
         questionText.SetText(questions[questionNumber]);
+        yield return new WaitForSeconds(0.2f);
+        foreach (Button b in answerButtonsbuttons)
+        {
+            b.enabled = true;
+        }
+        gameOngoing = true;
     }
 }
