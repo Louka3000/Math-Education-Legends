@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 22750668}
   - component: {fileID: 22750667}
   - component: {fileID: 22750666}
-  - component: {fileID: 22750669}
   m_Layer: 5
   m_Name: Answer2Button
   m_TagString: Untagged
@@ -214,7 +213,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -257,29 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22750664}
   m_CullTransparentMesh: 1
---- !u!114 &22750669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22750664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54d52ecfd61bf342a007d42479b1ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  answers:
-  - 18
-  - 4
-  - 39
-  - 19
-  - 8
-  - 30
-  - 4
-  - 25
-  - 24
-  - 20
 --- !u!114 &81636401 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5171084787432234341, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
@@ -520,7 +496,6 @@ GameObject:
   - component: {fileID: 415534886}
   - component: {fileID: 415534885}
   - component: {fileID: 415534884}
-  - component: {fileID: 415534887}
   m_Layer: 5
   m_Name: Answer1Button
   m_TagString: Untagged
@@ -599,7 +574,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -642,29 +617,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415534882}
   m_CullTransparentMesh: 1
---- !u!114 &415534887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415534882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54d52ecfd61bf342a007d42479b1ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  answers:
-  - 2
-  - 9
-  - 4
-  - 91
-  - 12
-  - 15
-  - 7
-  - 15
-  - 12
-  - 16
 --- !u!1 &467867478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,23 +1065,26 @@ MonoBehaviour:
   - 'Question  10:
 
     Que font 6 x 4 + 6 - (3 x 5)?'
-  winText: 'Felecitations
-
-    Vous avez gagne'
-  correctButton: 02000000010000000400000002000000030000000300000001000000020000000100000004000000
-  answerButtons:
-  - {fileID: 415534887}
-  - {fileID: 22750669}
-  - {fileID: 1408811200}
-  - {fileID: 2013624900}
-  questionText: {fileID: 1965879417}
-  scoreText: {fileID: 1600169139}
-  timerText: {fileID: 478622839}
+  correctAnswers:
+  - 18
+  - 2
+  - -3
+  - 19
+  - 10
+  - 0
+  - 7
+  - 25
+  - 12
+  - 15
+  winText: "Felecitations!\nVous avez gagn\xE9"
   answerTexts:
   - {fileID: 1246167071}
   - {fileID: 1744883388}
   - {fileID: 1715655343}
   - {fileID: 371394941}
+  questionText: {fileID: 1965879417}
+  scoreText: {fileID: 1600169139}
+  timerText: {fileID: 478622839}
   answerButtonsbuttons: []
   answerPanel: {fileID: 2134113060}
   fade: {fileID: 472613182}
@@ -1379,7 +1334,6 @@ GameObject:
   - component: {fileID: 1408811199}
   - component: {fileID: 1408811198}
   - component: {fileID: 1408811197}
-  - component: {fileID: 1408811200}
   m_Layer: 5
   m_Name: Answer3Button
   m_TagString: Untagged
@@ -1458,7 +1412,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1501,29 +1455,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408811195}
   m_CullTransparentMesh: 1
---- !u!114 &1408811200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408811195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54d52ecfd61bf342a007d42479b1ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  answers:
-  - 4
-  - 88
-  - -6
-  - 4
-  - 10
-  - 0
-  - -7
-  - 16
-  - -6
-  - 24
 --- !u!1 &1600169137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,7 +2003,6 @@ GameObject:
   - component: {fileID: 2013624899}
   - component: {fileID: 2013624898}
   - component: {fileID: 2013624897}
-  - component: {fileID: 2013624900}
   m_Layer: 5
   m_Name: Answer4Button
   m_TagString: Untagged
@@ -2151,7 +2081,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2194,29 +2124,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013624895}
   m_CullTransparentMesh: 1
---- !u!114 &2013624900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013624895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b54d52ecfd61bf342a007d42479b1ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  answers:
-  - 5
-  - 2
-  - -3
-  - 21
-  - 4
-  - -2
-  - 14
-  - 42
-  - 36
-  - 15
 --- !u!1 &2018523760
 GameObject:
   m_ObjectHideFlags: 0

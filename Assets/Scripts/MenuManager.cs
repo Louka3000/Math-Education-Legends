@@ -32,6 +32,7 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetFloat("volume", volume);
         }
         volumeSlider.value = volume * 10;// *10 tu use whole numbers for the Unity slider
+        soundManager.bgm.volume = volume;
         if (PlayerPrefs.HasKey("fullscreen"))
         {
             if (PlayerPrefs.GetInt("fullscreen") == 1)
@@ -86,6 +87,7 @@ public class MenuManager : MonoBehaviour
     public void ChangeVolume() //Called when the volume slider's value changes
     {
         volume = volumeSlider.value / 10;// /10 because the slider goes from 0 to 10 instead of 0 to 1
+        soundManager.bgm.volume = volume;
         PlayerPrefs.SetFloat("volume", volume);
         PlayerPrefs.Save();
     }
@@ -106,7 +108,7 @@ public class MenuManager : MonoBehaviour
     private IEnumerator LoadGame()
     {
         fade.SetActive(true);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Game");
     }
     private IEnumerator CloseApplication()

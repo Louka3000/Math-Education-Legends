@@ -5,18 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     [Header("QUESTIONS AND ANSWERS")]
     [SerializeField] [TextArea] private string[] questions;
+    [SerializeField] private float[] correctAnswers;
     [SerializeField] [TextArea] private string winText;
-    [SerializeField] private int[] correctButton;
 
     [Header("GAMEOBJECTS")]
-    [SerializeField] private answerButtonsScript[] answerButtons;
-    [SerializeField] private TextMeshProUGUI questionText, scoreText, timerText;
     [SerializeField] private TextMeshProUGUI[] answerTexts;
+    [SerializeField] private TextMeshProUGUI questionText, scoreText, timerText;
     [SerializeField] private Button[] answerButtonsbuttons;
     [SerializeField] private GameObject answerPanel, fade;
     [SerializeField] private Animator fadeAnimator;
@@ -26,12 +26,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip selectSound;
 
     private float volume, timer, lastTime;
-    private int questionNumber, score;
+    private int questionNumber, score, correctButton;
     private bool gameOngoing;
 
     private void Start()
     {
         volume = PlayerPrefs.GetFloat("volume", 0.5f);
+        soundManager.bgm.volume = volume;
         StartCoroutine("StartGame");
     }
     private IEnumerator StartGame()
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine("SetNewTexts");
         fade.SetActive(true);
         fadeAnimator.SetBool("reverse", true);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         fade.SetActive(false);
         yield return new WaitForSeconds(0.1f);
     }
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void SubmitAnswer(int button)
     {
         soundManager.playSound(selectSound, volume);
-        if (correctButton[questionNumber] == button) //If answered question correctly
+        if (correctButton == button) //If answered question correctly
         {
             float timeDifference = timer - lastTime;
             score += 3 + (int)(Mathf.Clamp(7f - timeDifference, 0, 4));
@@ -65,7 +66,6 @@ public class GameManager : MonoBehaviour
             if (questionNumber == 10) //If finished answering questions
             {
                 gameOngoing = false;
-                Debug.Log("You won!!!");
                 questionText.SetText(winText);
                 answerPanel.SetActive(false);
                 if (score > PlayerPrefs.GetInt("highscore"))//if the new score is higher than the highscore
@@ -78,14 +78,12 @@ public class GameManager : MonoBehaviour
             else //else go to next question
             {
                 StartCoroutine("SetNewTexts");
-                Debug.Log("Yes :D");
             }
         }
         else //If didn't answer correctly
         {
             score -= 2;
             scoreText.SetText("Score :  " + score);
-            Debug.Log("No :(");
         }
     }
     private IEnumerator SetNewTexts()
@@ -95,15 +93,48 @@ public class GameManager : MonoBehaviour
         {
             b.enabled = false;
         }
-        int i = 0;
+
+        int i = 0, rand;
+        correctButton = -1;
+
         foreach (TextMeshProUGUI text in answerTexts)
         {
-            text.SetText(answerButtons[i].answers[questionNumber]);
+            if(i == 3 && correctButton == -1)
+            {
+                rand = 0;
+            }
+            else if(correctButton != -1)
+            {
+                rand = Random.Range(1, 4);
+            }
+            else
+            {
+                rand = Random.Range(0, 4);
+            }
+            switch (rand)
+            {
+                case 0:
+                    text.SetText(correctAnswers[i].ToString());
+                    correctButton = i;
+                    break;
+                case 1:
+                    text.SetText((correctAnswers[i] * Random.Range(1, 2) + 2).ToString());
+                    break;
+                case 2:
+                    text.SetText((correctAnswers[i] / Random.Range(1, 2) + (Random.Range(-3, 2))).ToString());
+                    break;
+                case 3:
+                    text.SetText((correctAnswers[i] + (Random.Range(1, 2) + 2)).ToString());
+                    break;
+            }
             i++;
         }
+
         scoreText.SetText("Score :  " + score);
         questionText.SetText(questions[questionNumber]);
+
         yield return new WaitForSeconds(0.2f);
+
         foreach (Button b in answerButtonsbuttons)
         {
             b.enabled = true;
