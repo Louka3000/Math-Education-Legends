@@ -1067,7 +1067,7 @@ MonoBehaviour:
     Que font 6 x 4 + 6 - (3 x 5)?'
   correctAnswers:
   - 18
-  - 2
+  - 9
   - -3
   - 19
   - 10
@@ -2245,7 +2245,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4143623903697965532, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
 --- !u!1 &2114186545
 GameObject:

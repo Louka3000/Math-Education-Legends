@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +14,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Toggle fullScreenToggle;
     [SerializeField] private AudioClip selectSound;
 
-    private float volume = 0.4f; //initial volume
+    private float volume = 0.5f;
+    private readonly int volumeDivider = 25;
 
     private void Start()
     {
@@ -31,8 +31,7 @@ public class MenuManager : MonoBehaviour
         {
             PlayerPrefs.SetFloat("volume", volume);
         }
-        volumeSlider.value = volume * 10;// *10 tu use whole numbers for the Unity slider
-        soundManager.bgm.volume = volume;
+        volumeSlider.value = volume * volumeDivider;// to use whole numbers for the Unity slider
         if (PlayerPrefs.HasKey("fullscreen"))
         {
             if (PlayerPrefs.GetInt("fullscreen") == 1)
@@ -60,7 +59,7 @@ public class MenuManager : MonoBehaviour
     }
     public void StartGame() //Called when "JOUER" is pressed
     {
-        soundManager.playSound(selectSound, volume);
+        soundManager.PlaySound(selectSound);
         foreach(Button b in buttonsTitle)
         {
             b.enabled = false;
@@ -69,25 +68,25 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenSettings() //Called when "PARAMETRE" is pressed
     {
-        soundManager.playSound(selectSound, volume);
+        soundManager.PlaySound(selectSound);
         title.SetActive(false);
         settings.SetActive(true);
     }
     public void CloseSettings() //Called when "RETOUR" is pressed
     {
-        soundManager.playSound(selectSound, volume);
+        soundManager.PlaySound(selectSound);
         title.SetActive(true);
         settings.SetActive(false);
     }
     public void LeaveGame() //Called when "QUITTER' is pressed
     {
-        soundManager.playSound(selectSound, volume);
+        soundManager.PlaySound(selectSound);
         StartCoroutine("CloseApplication");
     }
     public void ChangeVolume() //Called when the volume slider's value changes
     {
-        volume = volumeSlider.value / 10;// /10 because the slider goes from 0 to 10 instead of 0 to 1
-        soundManager.bgm.volume = volume;
+        volume = volumeSlider.value / volumeDivider;//slider goes from 0 to 10
+        soundManager.UpdateVolume(volume);
         PlayerPrefs.SetFloat("volume", volume);
         PlayerPrefs.Save();
     }

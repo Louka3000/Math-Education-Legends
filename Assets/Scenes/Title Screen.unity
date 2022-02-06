@@ -1341,9 +1341,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1154127117}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 8
+  m_MaxValue: 10
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3311,6 +3311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManagerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 5171084787432234340, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fbef462abadcbaa4cb836597e2224c82, type: 3}
     - target: {fileID: 5171084787432234342, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
       propertyPath: m_RootOrder
       value: 5

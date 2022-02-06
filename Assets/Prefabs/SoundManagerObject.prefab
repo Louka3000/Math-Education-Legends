@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5171084787432234342}
   - component: {fileID: 5171084787432234341}
   - component: {fileID: 5171084787432234340}
-  - component: {fileID: 4143623903697965532}
+  - component: {fileID: 7025564182886839731}
   m_Layer: 0
   m_Name: SoundManagerObject
   m_TagString: Untagged
@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43f51bf063c00e4abe7306e4b36f8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 5171084787432234340}
-  bgm: {fileID: 4143623903697965532}
+  music: {fileID: 5171084787432234340}
+  bfx: {fileID: 7025564182886839731}
+  musicDivider: 1.2
 --- !u!82 &5171084787432234340
 AudioSource:
   m_ObjectHideFlags: 0
@@ -58,14 +59,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 105
+  Priority: 148
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -143,7 +144,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &4143623903697965532
+--- !u!82 &7025564182886839731
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,14 +155,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 140
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

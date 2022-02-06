@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -25,14 +24,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip selectSound;
 
-    private float volume, timer, lastTime;
-    private int questionNumber, score, correctButton;
+    private float timer, lastTime;
+    private int questionNumber, score, correctButton, rand, index, textButton;
     private bool gameOngoing;
 
     private void Start()
     {
-        volume = PlayerPrefs.GetFloat("volume", 0.5f);
-        soundManager.bgm.volume = volume;
         StartCoroutine("StartGame");
     }
     private IEnumerator StartGame()
@@ -56,11 +53,12 @@ public class GameManager : MonoBehaviour
     }
     public void SubmitAnswer(int button)
     {
-        soundManager.playSound(selectSound, volume);
+        soundManager.PlaySound(selectSound);
         if (correctButton == button) //If answered question correctly
         {
             float timeDifference = timer - lastTime;
             score += 3 + (int)(Mathf.Clamp(7f - timeDifference, 0, 4));
+            UpdateScore();
             lastTime = timer;
             questionNumber++;
             if (questionNumber == 10) //If finished answering questions
@@ -83,62 +81,69 @@ public class GameManager : MonoBehaviour
         else //If didn't answer correctly
         {
             score -= 2;
-            scoreText.SetText("Score :  " + score);
+            UpdateScore();
         }
     }
     private IEnumerator SetNewTexts()
     {
+        //disables buttons and pauses game
         gameOngoing = false;
         foreach (Button b in answerButtonsbuttons)
         {
             b.enabled = false;
         }
 
-        int i = 0, rand;
-        correctButton = -1;
-
+        //Sets answer buttons' texts
+        correctButton = -1; index = 0; rand = 0;
         foreach (TextMeshProUGUI text in answerTexts)
         {
-            if(i == 3 && correctButton == -1)
-            {
+            if(index == 3 && correctButton == -1)
                 rand = 0;
-            }
-            else if(correctButton != -1)
-            {
+            else if (correctButton != -1)
                 rand = Random.Range(1, 4);
-            }
             else
-            {
                 rand = Random.Range(0, 4);
-            }
+
             switch (rand)
             {
                 case 0:
-                    text.SetText(correctAnswers[i].ToString());
-                    correctButton = i;
+                    textButton = (int)correctAnswers[questionNumber];
+                    correctButton = index;
                     break;
                 case 1:
-                    text.SetText((correctAnswers[i] * Random.Range(1, 2) + 2).ToString());
+                    textButton = (int)(correctAnswers[questionNumber] * Random.Range(1, 3) + Random.Range(-1, 3));
+                    if (textButton == correctAnswers[questionNumber])
+                        textButton--;
                     break;
                 case 2:
-                    text.SetText((correctAnswers[i] / Random.Range(1, 2) + (Random.Range(-3, 2))).ToString());
+                    textButton = (int)(correctAnswers[questionNumber] / 2 + Random.Range(1, 3));
+                    if (textButton == correctAnswers[questionNumber])
+                        textButton++;
                     break;
                 case 3:
-                    text.SetText((correctAnswers[i] + (Random.Range(1, 2) + 2)).ToString());
+                    textButton = (int)(correctAnswers[questionNumber] + (Random.Range(-5, 2) - 1) * -1);
+                    if (textButton == correctAnswers[questionNumber])
+                        textButton++;
                     break;
             }
-            i++;
+            text.SetText(textButton.ToString());
+            index++;
         }
 
-        scoreText.SetText("Score :  " + score);
+        //updates question text
         questionText.SetText(questions[questionNumber]);
 
         yield return new WaitForSeconds(0.2f);
 
+        //enables buttons and resumes game
         foreach (Button b in answerButtonsbuttons)
         {
             b.enabled = true;
         }
         gameOngoing = true;
+    }
+    private void UpdateScore()
+    {
+        scoreText.SetText("Score :  " + score);
     }
 }
