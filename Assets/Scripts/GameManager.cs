@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
         else //If didn't answer correctly
         {
-            score -= 2;
+            score -= 3;
             UpdateScore();
         }
     }
@@ -131,7 +131,8 @@ public class GameManager : MonoBehaviour
         }
 
         //updates question text
-        questionText.SetText(questions[questionNumber]);
+        StopCoroutine("TypeByLetter");
+        StartCoroutine("TypeByLetter");
 
         yield return new WaitForSeconds(0.2f);
 
@@ -145,5 +146,15 @@ public class GameManager : MonoBehaviour
     private void UpdateScore()
     {
         scoreText.SetText("Score :  " + score);
+    }
+
+    IEnumerator TypeByLetter()
+    {
+        questionText.text = "";
+        foreach (char letter in questions[questionNumber])
+        {
+            yield return new WaitForSeconds(0.02f);
+            questionText.text += letter;
+        }
     }
 }

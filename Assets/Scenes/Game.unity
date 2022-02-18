@@ -1076,7 +1076,9 @@ MonoBehaviour:
   - 25
   - 12
   - 15
-  winText: "Felecitations!\nVous avez gagn\xE9"
+  winText: 'Felecitations!
+
+    Vous avez gagne!'
   answerTexts:
   - {fileID: 1246167071}
   - {fileID: 1744883388}
@@ -2201,6 +2203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManagerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 5171084787432234340, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 024250ad373871946801068644a4fa06, type: 3}
     - target: {fileID: 5171084787432234342, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2244,6 +2250,10 @@ PrefabInstance:
     - target: {fileID: 5171084787432234342, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025564182886839731, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4143623903697965532, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
