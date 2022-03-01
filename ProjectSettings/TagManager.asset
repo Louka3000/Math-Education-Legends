@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SoundManager
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2710795215
+    locked: 0
+  - name: Sprites
+    uniqueID: 360250675
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

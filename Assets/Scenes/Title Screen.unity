@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf3bee600e016841b7bccf3db9d8089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundManager: {fileID: 1039394245}
   title: {fileID: 1947464880}
   settings: {fileID: 1856929931}
   fade: {fileID: 530512296}
@@ -780,7 +779,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530512298
 MonoBehaviour:
@@ -873,8 +872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 180}
-  m_SizeDelta: {x: 900, y: 60}
+  m_AnchoredPosition: {x: 133, y: 180}
+  m_SizeDelta: {x: 846.01, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &575174494
 MonoBehaviour:
@@ -896,7 +895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: meilleur  score    0
+  m_text: meilleur score  0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2c2016a9a8315544818f925ddc96989, type: 2}
   m_sharedMaterial: {fileID: 6751177339127750533, guid: e2c2016a9a8315544818f925ddc96989, type: 2}
@@ -933,8 +932,8 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_characterSpacing: 3
+  m_wordSpacing: 15
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -1834,17 +1833,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911184769}
   m_CullTransparentMesh: 1
---- !u!114 &1039394245 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5171084787432234341, guid: d1f1204827e8aec4896448ca8697b5f8, type: 3}
-  m_PrefabInstance: {fileID: 5171084786850134176}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d43f51bf063c00e4abe7306e4b36f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1147887895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,7 +2136,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_wordSpacing: 15
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -2549,8 +2537,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58
-  m_fontSizeBase: 58
+  m_fontSize: 53
+  m_fontSizeBase: 53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3072,8 +3060,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58
-  m_fontSizeBase: 58
+  m_fontSize: 53
+  m_fontSizeBase: 53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

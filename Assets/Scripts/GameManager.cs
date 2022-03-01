@@ -8,33 +8,38 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("QUESTIONS AND ANSWERS")]
+    [Header("QUESTIONS & ANSWERS")]
     [SerializeField] [TextArea] private string[] questions;
     [SerializeField] private float[] correctAnswers;
     [SerializeField] [TextArea] private string winText;
 
-    [Header("GAMEOBJECTS")]
+    [Header("GAMEOBJECTS & COMPONENTS")]
     [SerializeField] private TextMeshProUGUI[] answerTexts;
     [SerializeField] private TextMeshProUGUI questionText, scoreText, timerText;
-    [SerializeField] private Button[] answerButtonsbuttons;
-    [SerializeField] private GameObject answerPanel, fade;
-    [SerializeField] private Animator fadeAnimator;
+    [SerializeField] private Button[] answerButtons;
+    [SerializeField] private GameObject answerPanel, fade, titleScreenButton;
 
-    [Header("SOUND")]
-    [SerializeField] private SoundManager soundManager;
+    [Header("OTHER")]
     [SerializeField] private AudioClip selectSound;
 
+    private Animator fadeAnimator;
+    private SoundManager soundManager;
     private float timer, lastTime;
     private int questionNumber, score, correctButton, rand, index, textButton;
     private bool gameOngoing;
 
+    private void Awake()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        fadeAnimator = fade.GetComponent<Animator>();
+    }
     private void Start()
     {
-        StartCoroutine("StartGame");
+        StartCoroutine(nameof(StartGame));
     }
     private IEnumerator StartGame()
     {
-        StartCoroutine("SetNewTexts");
+        StartCoroutine(nameof(SetNewTexts));
         fade.SetActive(true);
         fadeAnimator.SetBool("reverse", true);
         yield return new WaitForSeconds(1f);
@@ -43,6 +48,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        // Timer
         if (gameOngoing)
         {
             timer += Time.deltaTime;
@@ -54,31 +60,33 @@ public class GameManager : MonoBehaviour
     public void SubmitAnswer(int button)
     {
         soundManager.PlaySound(selectSound);
-        if (correctButton == button) //If answered question correctly
+        if (correctButton == button) // If answered question correctly
         {
+            StopCoroutine(nameof(TypeByLetter));
             float timeDifference = timer - lastTime;
             score += 3 + (int)(Mathf.Clamp(7f - timeDifference, 0, 4));
             UpdateScore();
             lastTime = timer;
             questionNumber++;
-            if (questionNumber == 10) //If finished answering questions
+            if (questionNumber == questions.Length) // If finished answering questions
             {
                 gameOngoing = false;
                 questionText.SetText(winText);
                 answerPanel.SetActive(false);
-                if (score > PlayerPrefs.GetInt("highscore"))//if the new score is higher than the highscore
+                if (score > PlayerPrefs.GetInt("highscore"))// If the new score is higher than the highscore
                 {
                     PlayerPrefs.SetInt("highscore", score);
                     PlayerPrefs.Save();
+                    questionText.text += Environment.NewLine + "Nouveau record : " + score;
                 }
-                //TODO : make a high score announcement text
+                titleScreenButton.SetActive(true);
             }
-            else //else go to next question
+            else // else go to next question
             {
-                StartCoroutine("SetNewTexts");
+                StartCoroutine(nameof(SetNewTexts));
             }
         }
-        else //If didn't answer correctly
+        else // If didn't answer correctly
         {
             score -= 3;
             UpdateScore();
@@ -86,14 +94,14 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator SetNewTexts()
     {
-        //disables buttons and pauses game
+        // Disables buttons and pauses game
         gameOngoing = false;
-        foreach (Button b in answerButtonsbuttons)
+        foreach (Button b in answerButtons)
         {
             b.enabled = false;
         }
 
-        //Sets answer buttons' texts
+        // Sets answer buttons' texts
         correctButton = -1; index = 0; rand = 0;
         foreach (TextMeshProUGUI text in answerTexts)
         {
@@ -104,7 +112,7 @@ public class GameManager : MonoBehaviour
             else
                 rand = Random.Range(0, 4);
 
-            switch (rand)
+            switch (rand) // Random stuff to make 3 false answers kinda random...
             {
                 case 0:
                     textButton = (int)correctAnswers[questionNumber];
@@ -130,14 +138,13 @@ public class GameManager : MonoBehaviour
             index++;
         }
 
-        //updates question text
-        StopCoroutine("TypeByLetter");
-        StartCoroutine("TypeByLetter");
+        // Updates question text
+        StartCoroutine(nameof(TypeByLetter));
 
         yield return new WaitForSeconds(0.2f);
 
-        //enables buttons and resumes game
-        foreach (Button b in answerButtonsbuttons)
+        // Enables buttons and resumes game
+        foreach (Button b in answerButtons)
         {
             b.enabled = true;
         }
@@ -155,6 +162,19 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.02f);
             questionText.text += letter;
+            // TODO play sound effect
         }
+    }
+
+    public void GoToTitleScreen()
+    {
+        soundManager.PlaySound(selectSound);
+        StartCoroutine(nameof(ToTitleScreen));
+    }
+    private IEnumerator ToTitleScreen()
+    {
+        fade.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Title Screen");
     }
 }
