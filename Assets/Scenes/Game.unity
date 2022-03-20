@@ -1230,6 +1230,10 @@ MonoBehaviour:
   fade: {fileID: 472613182}
   titleScreenButton: {fileID: 348940116}
   selectSound: {fileID: 8300000, guid: 2de4765420c9beb4b8c4435de6d826fd, type: 3}
+  talkSounds:
+  - {fileID: 8300000, guid: ea0e0814f43a64a49b5c707446aa5a86, type: 3}
+  - {fileID: 8300000, guid: fe06c7d4ceedd794789045b0c2aeef93, type: 3}
+  - {fileID: 8300000, guid: c47b7a1092796664baded32157eac58e, type: 3}
 --- !u!4 &657226173
 Transform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     [Header("OTHER")]
     [SerializeField] private AudioClip selectSound;
+    [SerializeField] private AudioClip[] talkSounds;
 
     private Animator fadeAnimator;
     private SoundManager soundManager;
@@ -162,7 +163,8 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.02f);
             questionText.text += letter;
-            // TODO play sound effect
+            rand = Random.Range(0, talkSounds.Length);
+            soundManager.PlaySound(talkSounds[rand], 0.8f);
         }
     }
 

@@ -86,9 +86,10 @@ public class MenuManager : MonoBehaviour
         soundManager.PlaySound(selectSound);
         StartCoroutine(nameof(CloseApplication));
     }
+
     public void ChangeVolume() // Called when the volume slider's value changes
     {
-        volume = volumeSlider.value / volumeDivider;//slider goes from 0 to 10
+        volume = volumeSlider.value / volumeDivider; // Slider goes from 0 to 10
         soundManager.UpdateVolume(volume);
         PlayerPrefs.SetFloat("volume", volume);
         PlayerPrefs.Save();

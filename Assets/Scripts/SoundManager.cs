@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public float musicDivider = 1.2f;
+    public float musicDivider = 1.25f;
     [SerializeField] private AudioSource music, bfx;
-    private float volume;
+    private float volume = 0.5f;
     private void Start()
     {
-        UpdateVolume(PlayerPrefs.GetFloat("volume", 0.2f));
+        UpdateVolume(PlayerPrefs.GetFloat("volume", volume));
     }
     public void UpdateVolume(float vol)
     {
