@@ -18,10 +18,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI questionText, scoreText, timerText;
     [SerializeField] private Button[] answerButtons;
     [SerializeField] private GameObject answerPanel, fade, titleScreenButton;
+    [SerializeField] private SpriteRenderer patrickSprite;
 
     [Header("OTHER")]
     [SerializeField] private AudioClip selectSound;
     [SerializeField] private AudioClip[] talkSounds;
+    [SerializeField] private Sprite patrickNormal, patrickSurprised, patrickBored;
 
     private Animator fadeAnimator;
     private SoundManager soundManager;
@@ -42,9 +44,14 @@ public class GameManager : MonoBehaviour {
         // Timer
         if (gameOngoing) {
             timer += Time.deltaTime;
+
             float time = (float)Math.Round(timer, 1);
             timerText.SetText("Temps :  " + time);
             if ((int)time == time) timerText.text += ".0";
+
+            if (timer - lastTime > 9.9f) {
+                patrickSprite.sprite = patrickBored;
+            }
         }
     }
 
@@ -63,10 +70,16 @@ public class GameManager : MonoBehaviour {
         if (correctButton == button) { // If answered question correctly
             StopCoroutine(nameof(TypeByLetter));
             float timeDifference = timer - lastTime;
-            score += goodAnswerBonus + (int)(Mathf.Clamp(7f - timeDifference, 0, 4));
+            score += goodAnswerBonus + (int)Mathf.Clamp(7f - timeDifference, 0, 4);
             UpdateScore();
             lastTime = timer;
             questionNumber++;
+
+            patrickSprite.sprite = patrickNormal;
+            if (timeDifference < 1.6f) {
+                StartCoroutine(nameof(SurprisedFace));
+            }
+
             if (questionNumber == questions.Length) { // If finished answering questions
                 gameOngoing = false;
                 questionText.SetText(winText);
@@ -84,6 +97,12 @@ public class GameManager : MonoBehaviour {
             score -= wrongAnswerPenality;
             UpdateScore();
         }
+    }
+
+    IEnumerator SurprisedFace() {
+        patrickSprite.sprite = patrickSurprised;
+        yield return new WaitForSeconds(1.2f);
+        patrickSprite.sprite = patrickNormal;
     }
 
     private IEnumerator SetNewTexts() {

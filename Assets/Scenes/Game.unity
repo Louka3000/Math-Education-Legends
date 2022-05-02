@@ -865,7 +865,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2114186549}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1229,11 +1229,15 @@ MonoBehaviour:
   answerPanel: {fileID: 2134113060}
   fade: {fileID: 472613182}
   titleScreenButton: {fileID: 348940116}
+  patrickSprite: {fileID: 997302592}
   selectSound: {fileID: 8300000, guid: 2de4765420c9beb4b8c4435de6d826fd, type: 3}
   talkSounds:
   - {fileID: 8300000, guid: ea0e0814f43a64a49b5c707446aa5a86, type: 3}
   - {fileID: 8300000, guid: fe06c7d4ceedd794789045b0c2aeef93, type: 3}
   - {fileID: 8300000, guid: c47b7a1092796664baded32157eac58e, type: 3}
+  patrickNormal: {fileID: -3690741884455701986, guid: cd501d51913431d4d9a086eb95e1fda0, type: 3}
+  patrickSurprised: {fileID: -5383248296193467583, guid: 09a5d12f703fbfe4ca6d0f32dac48731, type: 3}
+  patrickBored: {fileID: -1116357680085364350, guid: cfac51a5c60068241a47756ea3f13a9e, type: 3}
 --- !u!4 &657226173
 Transform:
   m_ObjectHideFlags: 0
@@ -1329,7 +1333,7 @@ Transform:
   m_LocalScale: {x: 216.00002, y: 216.00002, z: 108}
   m_Children: []
   m_Father: {fileID: 2114186549}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045320193
 GameObject:
@@ -2841,8 +2845,8 @@ RectTransform:
   - {fileID: 1600169138}
   - {fileID: 478622838}
   - {fileID: 348940117}
-  - {fileID: 472613183}
   - {fileID: 997302593}
+  - {fileID: 472613183}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
